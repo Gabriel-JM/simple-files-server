@@ -1,0 +1,23 @@
+{
+  "name": "simple-files-server",
+  "version": "1.0.0",
+  "description": "A Simple HTTP Server to serve static files.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gabriel-JM/simple-nodejs-static-server.git"
+  },
+  "keywords": [
+    "static-server"
+  ],
+  "author": "Gabriel José",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Gabriel-JM/simple-nodejs-static-server/issues"
+  },
+  "homepage": "https://github.com/Gabriel-JM/simple-nodejs-static-server#readme"
+}
