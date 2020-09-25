@@ -1,3 +1,6 @@
+const http = require('http')
+const path = require('path')
+
 module.exports = function createServer(folder, mimeTypes) {
   const server = http.createServer(runServer)
 
