@@ -18,7 +18,7 @@ module.exports = function ({ folder = '', mimeTypes = null }) {
     listen(port, startFunction) {
       server.listen(
         port,
-        startFunction ? startFunction() : defaultStartFunction()
+        startFunction ? startFunction(port) : defaultStartFunction(port)
       )
     }
   }
