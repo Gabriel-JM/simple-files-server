@@ -1,5 +1,6 @@
 const http = require('http')
 const path = require('path')
+const { getFileContent } = require('./files-reader')
 
 module.exports = function createServer(folder, mimeTypes) {
   const server = http.createServer(runServer)
