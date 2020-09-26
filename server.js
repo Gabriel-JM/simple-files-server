@@ -7,7 +7,7 @@ module.exports = function createServer(folder, mimeTypes) {
 
   async function runServer(req, res) {
     const fileName = req.url === '/' ? 'index.html' : req.url
-    const filePath = path.join(__dirname, ...folder, fileName)
+    const filePath = path.resolve(...folder, fileName)
   
     const [_, extension] = fileName.split('.')
     const contentType = mimeTypes[extension]

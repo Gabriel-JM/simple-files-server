@@ -5,6 +5,6 @@ exports.getFileContent = async (filePath) => {
     if(fs.existsSync(filePath)) {
       resolve(fs.readFileSync(filePath))
     }
-    reject(`\n> File ${filePath.split('/')[1]} not found`)
+    reject(`\n> File ${filePath} not found`)
   })
 }

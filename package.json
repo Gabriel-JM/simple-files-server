@@ -1,6 +1,6 @@
 {
   "name": "simple-files-server",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A Simple HTTP Server to serve static files.",
   "main": "index.js",
   "scripts": {
