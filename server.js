@@ -2,12 +2,19 @@ const http = require('http')
 const path = require('path')
 const { getFileContent } = require('./files-reader')
 
+const outOfNodeModules = ['..', '..']
+
 module.exports = function createServer(folder, mimeTypes) {
   const server = http.createServer(runServer)
 
   async function runServer(req, res) {
     const fileName = req.url === '/' ? 'index.html' : req.url
-    const filePath = path.resolve(...folder, fileName)
+    const filePath = path.join(
+      __dirname,
+      ...outOfNodeModules,
+      ...folder,
+      fileName
+    )
   
     const [_, extension] = fileName.split('.')
     const contentType = mimeTypes[extension]
