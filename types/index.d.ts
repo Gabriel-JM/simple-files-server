@@ -9,4 +9,4 @@ export type FilesServerInstance = {
   listen(port: number, startFunction?: (port: number) => void): void
 }
 
-export function startServer(serverOpts: ServerOptions): FilesServerInstance
+export default function startServer(serverOpts: ServerOptions): FilesServerInstance
