@@ -1,5 +1,5 @@
-const createServer = require('./server')
-const defaultMimeTypes = require('./mime-types')
+const createServer = require('./lib/server')
+const defaultMimeTypes = require('./lib/mime-types')
 
 const defaultParam = { folder: '', mimeTypes: null }
 module.exports = function startServer({ folder, mimeTypes } = defaultParam) {

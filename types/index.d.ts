@@ -1,9 +1,8 @@
-
 type ObjOnlyStringValues = { [key: string]: string }
 
 export interface ServerOptions {
-  folder: string
-  mimeTypes: (defaultMimeTypes: ObjOnlyStringValues) => ObjOnlyStringValues | ObjOnlyStringValues
+  folder?: string
+  mimeTypes?: (defaultMimeTypes: ObjOnlyStringValues) => ObjOnlyStringValues | ObjOnlyStringValues
 }
 
 export type FilesServerInstance = {
