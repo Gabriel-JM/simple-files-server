@@ -1,5 +1,6 @@
 const createServer = require('./lib/server')
 const defaultMimeTypes = require('./lib/mime-types')
+const Logger = require('./lib/logger')
 
 const defaultParam = { folder: '', mimeTypes: null }
 module.exports = function startServer({ folder, mimeTypes } = defaultParam) {
@@ -9,17 +10,14 @@ module.exports = function startServer({ folder, mimeTypes } = defaultParam) {
     folder.split('/'),
     usedMimeTypes
   )
-  
-  function defaultStartFunction(port) {
-    console.clear()
-    console.log(`Server started at: http://localhost:${port}`)
-  }
 
   return {
     listen(port, startFunction) {
       server.listen(
         port,
-        startFunction ? startFunction(port) : defaultStartFunction(port)
+        startFunction
+          ? startFunction(port)
+          : Logger.defaultStart(port)
       )
     }
   }
