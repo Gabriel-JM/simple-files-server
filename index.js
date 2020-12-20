@@ -2,17 +2,11 @@ const createServer = require('./lib/server')
 const defaultMimeTypes = require('./lib/mime-types')
 const Logger = require('./lib/logger')
 
-const defaultParam = {
-  folder: '',
-  mimeTypes: null,
-  whenNoFileFallbackToIndex: true
-}
-
 module.exports = function startServer({
-  folder,
+  folder = '',
   mimeTypes,
-  whenNoFileFallbackToIndex
-} = defaultParam) {
+  whenNoFileFallbackToIndex = true
+}) {
   const usedMimeTypes = selectMimeTypes(mimeTypes)
 
   const server = createServer(
