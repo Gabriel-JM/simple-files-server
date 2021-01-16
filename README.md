@@ -7,6 +7,17 @@ Its focused on serve static files like front-end files.
 
 ## How to use
 
+### CLI
+```bash
+  <command> <sourceFolder> <options>
+```
+- command: the command to execute the server, you can use one of those, `simple-files-server`, `sf-server`, `sfs`.
+- sourceFolder: `optional` folder to serve, the server will search for the `index.html` in this folder. `Default: ./`
+- options:
+  - port: `optional` the port to start the server. `Default: 3500`.
+  - spa: `optional` a boolean value, if its is true the server will serve the index.html file if the request path wasn't for a file, for example /about. `Default: false`.
+
+### Programmatically
 ```js
 const filesServer = require('simple-files-server')
 const port = process.env.PORT || 3500
@@ -18,15 +29,11 @@ const server = filesServer({
 server.listen(port, /* Custom Log */)
 ```
 ### Server Options
-- **folder**: `optional` folder to serve, the server will search for the `index.html` in this folder.
+- **sourceFolder**: equal to `sourceFolder` cli option.
+- **spa**: equal to `spa` cli option.
 - **mimeTypes**: `optional` mime types of files to serve, can be override with an `object` or use a `function` that will receive the default mime types as first parameter and the return of this function will be the new mime types options.
 
-### Default values
-
-**folder:**
-`./`
-
-**mime types:**
+**Default MIME types:**
 ```js
 {
   txt: 'text/plain',
