@@ -3,16 +3,16 @@ const defaultMimeTypes = require('./lib/mime-types')
 const Logger = require('./lib/logger')
 
 module.exports = function startServer({
-  folder = '',
+  sourceFolder = '',
   mimeTypes,
-  whenNoFileFallbackToIndex = true
+  spa = false
 }) {
   const usedMimeTypes = selectMimeTypes(mimeTypes)
 
   const server = createServer(
-    folder.split('/'),
+    sourceFolder.split('/'),
     usedMimeTypes,
-    whenNoFileFallbackToIndex
+    spa
   )
 
   return {
