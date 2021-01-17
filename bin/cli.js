@@ -4,7 +4,13 @@ const getCliOptions = require('./get-cli-options')
 const filesServer = require('../index')
 const Logger = require('../lib/logger')
 
-const [_, __, pathToFile = '.', ...argvs] = process.argv
+const [_, __, ...argvs] = process.argv
+
+let pathToFile = '.'
+
+if(argvs.length) {
+  pathToFile = argvs[0].includes('-') ? '.' : argvs[0]
+}
 
 const options = getCliOptions(argvs)
 
