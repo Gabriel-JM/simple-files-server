@@ -17,12 +17,13 @@ module.exports = function startServer({
 
   return {
     listen(port, startFunction) {
-      server.listen(
-        port,
-        startFunction
-          ? startFunction(port)
-          : Logger.defaultStart(port)
-      )
+      Logger.port = port
+      Logger.startFunction = startFunction
+        ? startFunction
+        : Logger.defaultStart
+      ;
+
+      server.listen(port, Logger.running())
     }
   }
 }
