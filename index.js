@@ -18,6 +18,8 @@ module.exports = function startServer({
   return {
     listen(port, startFunction) {
       Logger.port = port
+      Logger.servingPath = sourceFolder || './'
+
       Logger.startFunction = startFunction
         ? startFunction
         : Logger.defaultStart
