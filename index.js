@@ -3,14 +3,14 @@ const defaultMimeTypes = require('./lib/mime-types')
 const Logger = require('./lib/logger')
 
 module.exports = function startServer({
-  sourceFolder = '',
+  source = '',
   mimeTypes,
   spa = false
 }) {
   const usedMimeTypes = selectMimeTypes(mimeTypes)
 
   const server = createServer(
-    sourceFolder.split('/'),
+    source.split('/'),
     usedMimeTypes,
     spa
   )
@@ -18,7 +18,7 @@ module.exports = function startServer({
   return {
     listen(port, startFunction) {
       Logger.port = port
-      Logger.servingPath = sourceFolder || './'
+      Logger.servingPath = source || './'
 
       Logger.startFunction = startFunction
         ? startFunction

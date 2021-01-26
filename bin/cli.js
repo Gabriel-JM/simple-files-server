@@ -12,6 +12,6 @@ if(argvs.length) {
 const options = getCliOptions(argvs)
 
 filesServer({
-  sourceFolder: pathToFile,
+  source: pathToFile,
   spa: options.spa
 }).listen(options.port)
